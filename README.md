@@ -55,6 +55,12 @@ tsc --init
 
 see `tsconfig.fson` will be display, uncomment `rootDir` to specify the root folder within your source files.
 
+After that, you can set up the root folder for compiler by change `"./"` to be any directory you need.
+
+In this case, we move `server.ts` into `src`, and set up `rootDir` to be `"./src"`.
+
+Anything outside `src` would not be compiled.
+
 Express
 
 ```
