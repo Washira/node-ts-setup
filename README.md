@@ -61,14 +61,53 @@ In this case, we move `server.ts` into `src`, and set up `rootDir` to be `"./src
 
 Anything outside `src` would not be compiled.
 
-Express
+### A folder for contain .js after compile from .ts
+
+We define a new row on `tsconfig.fson` if below `rootDir` will be better.
+
+Named `outDir` for contain .js file from compile .ts, in this case, call it to `dist`.
+
+Then, see `allowJs` and uncomment it, using to allow .js files to be a part of your program.
+
+And the project will be allowed to compile .js files as well as .ts file.
+
+## Add Libraries
+
+Generate `package.json` for the project as normal.
 
 ```
-npm i express
+npm init --y
 ```
 
-or
+Add `.gitignore` file for control unnecessary files or folders to the version control.
+
+```
+touch .gitignore
+```
+
+inside the file, type `node_modules` to ingore the folder pushed to Git.
+
+Then, add Express
 
 ```
 yarn add express
 ```
+
+Add 
+
+```
+yarn add @types/express -D
+
+or
+
+yarn add @types/express --dev
+```
+
+## Add Alias on `package.json`
+
+In `script` add new line to be
+
+```
+ "start": "ts-node src/server.ts"
+```
+Using when you need start server, you just type command `yarn start` instead of `ts-node src/server.ts`.
